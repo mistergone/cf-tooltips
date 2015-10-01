@@ -1,0 +1,93 @@
+// Import external dependencies
+
+@import '../../cf-core/src/cf-core.less';
+
+/* ==========================================================================
+   Capital Framework
+   <x> Styling
+   ========================================================================== */
+
+/* topdoc
+  name: Tooltips
+  family: cf-tooltips
+  notes:
+    - "Tooltips for the Capital Framework"
+  patterns:
+  - name: Tooltip container
+    markup: |
+      <div class="tooltip__container" data-tooltip__name="sample"
+        style="display:block; position: relative;">
+        This is sample tooltip content.
+      </div>
+    notes:
+      - "The above example has the style attribute to force it to be visibile
+        and relative, simply to display it for documentation purposes."
+  - name: Tooltip target
+    markup: |
+      <p data-tooltip__target="sample-two">This is an acceptable target.</p>
+      <div class="tooltip__container" data-tooltip__name="sample-two">
+        This is sample tooltip content.
+      </div>
+    notes:
+      - "Note"
+  tags:
+    - cf-tooltips
+*/
+
+// Color variables
+@tooltip-bg:              #F8F8F8;
+@tooltip-border:          #43484E;
+@tooltip-shadow:          #BABBBD;
+
+// .tooltip__container
+
+.tooltip__container {
+    background: @tooltip-bg;
+    border: 1px solid @tooltip-border;
+    display: none;
+    font-size: unit( 14px / @base-font-size-px, em);
+    line-height: unit( 19px / @base-font-size-px);
+    max-width: unit( 270px / @base-font-size-px, em);
+    padding: unit( 15px / @base-font-size-px, em);
+    position: absolute;
+    -webkit-box-shadow: 2px 2px 0px 0px @tooltip-shadow;
+    -moz-box-shadow: 2px 2px 0px 0px @tooltip-shadow;
+    box-shadow: 2px 2px 0px 0px @tooltip-shadow;
+
+    &:after, &:before {
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+    &:after {
+        border-top-color: @tooltip-bg;
+        border-width: 12px;
+        margin-left: -12px;
+    }
+    &:before {
+        border-top-color: @tooltip-border;
+        border-width: 13px;
+        margin-left: -13px;
+    }
+
+}
+
+// [data-tooltip__target]
+
+*[data-tooltip-target] {
+    cursor: pointer;
+}
+
+.tooltip__inline-target {
+
+}
+
+/* topdoc
+  name: EOF
+  eof: true
+*/

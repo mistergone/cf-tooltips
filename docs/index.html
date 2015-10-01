@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+  <!-- <![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>cf-tooltips docs</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic">
+    <link rel="stylesheet" type="text/css" href="static/docs/brackets.css">
+    <link rel="stylesheet" type="text/css" href="static/docs/docs.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  </head>
+  <body>
+    <div class="docs-sidebar-wrapper">
+      <div class="docs-sidebar-wrapper_body">
+        <div class="docs-masthead">
+          <h1 class="docs-title"><span class="docs-icon">&lt;/&gt;</span> cf-tooltips docs
+          </h1><a href="https://github.com/cfpb/cf-tooltips" class="docs-repo">view the repository</a>
+        </div>
+        <div id="tooltips" class="docs-component">
+          <h2 class="docs-component_header"><span>Tooltips</span></h2>
+          <div class="docs-component_intro">
+            <ul class="docs-notes">
+              <li>Tooltips for the Capital Framework</li>
+            </ul>
+          </div>
+          <div class="docs-patterns">
+            <div class="docs-pattern">
+              <h3 class="docs-pattern_header">Tooltip container</h3>
+              <section class="docs-pattern_pattern">
+<div class="tooltip__container" data-tooltip__name="sample"
+  style="display:block; position: relative;">
+  This is sample tooltip content.
+</div>
+
+              </section>
+              <footer class="docs-pattern_footer">
+                <pre class="docs-code docs-pattern_markup"><code data-language="html">&lt;div class=&quot;tooltip__container&quot; data-tooltip__name=&quot;sample&quot;
+  style=&quot;display:block; position: relative;&quot;&gt;
+  This is sample tooltip content.
+&lt;/div&gt;</code></pre>
+                <form action="http://codepen.io/pen/define" method="POST" target="_blank" class="docs-pattern_footer-edit">
+                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample\&amp;quot;\n  style=\&amp;quot;display:block; position: relative;\&amp;quot;&gt;\n  This is sample tooltip content.\n&lt;/div&gt;\n&amp;quot;}">
+                  <input type="submit" value="edit on codepen.io" class="docs-pattern_footer-edit-btn">
+                </form>
+                <ul class="docs-notes">
+                  <li>The above example has the style attribute to force it to be visibile and relative, simply to display it for documentation purposes.</li>
+                </ul>
+              </footer>
+            </div>
+            <div class="docs-pattern">
+              <h3 class="docs-pattern_header">Tooltip target</h3>
+              <section class="docs-pattern_pattern">
+<p data-tooltip__target="sample-two">This is an acceptable target.</p>
+<div class="tooltip__container" data-tooltip__name="sample-two">
+  This is sample tooltip content.
+</div>
+
+              </section>
+              <footer class="docs-pattern_footer">
+                <pre class="docs-code docs-pattern_markup"><code data-language="html">&lt;p data-tooltip__target=&quot;sample-two&quot;&gt;This is an acceptable target.&lt;/p&gt;
+&lt;div class=&quot;tooltip__container&quot; data-tooltip__name=&quot;sample-two&quot;&gt;
+  This is sample tooltip content.
+&lt;/div&gt;</code></pre>
+                <form action="http://codepen.io/pen/define" method="POST" target="_blank" class="docs-pattern_footer-edit">
+                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;p data-tooltip__target=\&amp;quot;sample-two\&amp;quot;&gt;This is an acceptable target.&lt;/p&gt;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample-two\&amp;quot;&gt;\n  This is sample tooltip content.\n&lt;/div&gt;\n&amp;quot;}">
+                  <input type="submit" value="edit on codepen.io" class="docs-pattern_footer-edit-btn">
+                </form>
+                <ul class="docs-notes">
+                  <li>Note</li>
+                </ul>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="docs-sidebar-wrapper_sidebar">
+        <ul class="docs-nav">
+          <li class="docs-nav_item"><a href="https://cfpb.github.io/cf-core/docs/" class="docs-nav_link">cf-core</a></li>
+          <li class="docs-nav_item"><a href="https://cfpb.github.io/cf-buttons/docs/" class="docs-nav_link">cf-buttons</a></li>
+          <li class="docs-nav_item"><a href="https://cfpb.github.io/cf-expandables/docs/" class="docs-nav_link">cf-expandables</a></li>
+          <li class="docs-nav_item"><a href="https://cfpb.github.io/cf-forms/docs/" class="docs-nav_link">cf-forms</a></li>
+          <li class="docs-nav_item"><a href="https://cfpb.github.io/cf-grid/docs/" class="docs-nav_link">cf-grid</a></li>
+          <li class="docs-nav_item"><a href="https://cfpb.github.io/cf-icons/docs/" class="docs-nav_link">cf-icons</a></li>
+          <li class="docs-nav_item"><a href="https://cfpb.github.io/cf-layout/docs/" class="docs-nav_link">cf-layout</a></li>
+          <li class="docs-nav_item"><a href="https://cfpb.github.io/cf-pagination/docs/" class="docs-nav_link">cf-pagination</a></li>
+          <li class="docs-nav_item"><a href="https://cfpb.github.io/cf-typography/docs/" class="docs-nav_link">cf-typography</a></li>
+        </ul>
+      </div>
+    </div>
+    <script src="static/docs/main.min.js"></script>
+    <script src="static/js/component.js"></script>
+  </body>
+</html>

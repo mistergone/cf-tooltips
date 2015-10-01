@@ -1,0 +1,35 @@
+{
+  "name": "cf-tooltips",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "capital-framework",
+    "capital",
+    "less"
+  ],
+  "authors": [
+    {
+      "name": "Consumer Financial Protection Bureau",
+      "url": "https://cfpb.github.io/"
+    }
+  ],
+  "homepage": "https://github.com/cfpb/cf-tooltips",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cfpb/cf-tooltips.git"
+  },
+  "license": "https://github.com/cfpb/cf-tooltips/blob/gh-pages/TERMS.md",
+  "main": "src/cf-tooltips.less",
+  "dependencies": {
+    "cf-core": "^1.0.3",
+    "jquery": "~1.11.0"
+  },
+  "exportsOverride": {
+    "cf-*": {
+      "css": "src/**/*.css",
+      "less": "src/**/*.less",
+      "fonts": "src/fonts/*.*",
+      "js": "src/**/*.js"
+    }
+  }
+}
