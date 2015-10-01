@@ -35,18 +35,18 @@
               <h3 class="docs-pattern_header">Tooltip container</h3>
               <section class="docs-pattern_pattern">
 <div class="tooltip__container" data-tooltip__name="sample"
-  style="display:block; position: relative;">
+  style="display:block; position: static;">
   This is sample tooltip content.
 </div>
 
               </section>
               <footer class="docs-pattern_footer">
                 <pre class="docs-code docs-pattern_markup"><code data-language="html">&lt;div class=&quot;tooltip__container&quot; data-tooltip__name=&quot;sample&quot;
-  style=&quot;display:block; position: relative;&quot;&gt;
+  style=&quot;display:block; position: static;&quot;&gt;
   This is sample tooltip content.
 &lt;/div&gt;</code></pre>
                 <form action="http://codepen.io/pen/define" method="POST" target="_blank" class="docs-pattern_footer-edit">
-                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample\&amp;quot;\n  style=\&amp;quot;display:block; position: relative;\&amp;quot;&gt;\n  This is sample tooltip content.\n&lt;/div&gt;\n&amp;quot;}">
+                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample\&amp;quot;\n  style=\&amp;quot;display:block; position: static;\&amp;quot;&gt;\n  This is sample tooltip content.\n&lt;/div&gt;\n&amp;quot;}">
                   <input type="submit" value="edit on codepen.io" class="docs-pattern_footer-edit-btn">
                 </form>
                 <ul class="docs-notes">
@@ -57,19 +57,23 @@
             <div class="docs-pattern">
               <h3 class="docs-pattern_header">Tooltip target</h3>
               <section class="docs-pattern_pattern">
-<p data-tooltip__target="sample-two">This is an acceptable target.</p>
+<p>The following text is a valid target:
+  <span data-tooltip__target="sample-two"><strong>valid target</strong></span>
+</p>
 <div class="tooltip__container" data-tooltip__name="sample-two">
   This is sample tooltip content.
 </div>
 
               </section>
               <footer class="docs-pattern_footer">
-                <pre class="docs-code docs-pattern_markup"><code data-language="html">&lt;p data-tooltip__target=&quot;sample-two&quot;&gt;This is an acceptable target.&lt;/p&gt;
+                <pre class="docs-code docs-pattern_markup"><code data-language="html">&lt;p&gt;The following text is a valid target:
+  &lt;span data-tooltip__target=&quot;sample-two&quot;&gt;&lt;strong&gt;valid target&lt;/strong&gt;&lt;/span&gt;
+&lt;/p&gt;
 &lt;div class=&quot;tooltip__container&quot; data-tooltip__name=&quot;sample-two&quot;&gt;
   This is sample tooltip content.
 &lt;/div&gt;</code></pre>
                 <form action="http://codepen.io/pen/define" method="POST" target="_blank" class="docs-pattern_footer-edit">
-                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;p data-tooltip__target=\&amp;quot;sample-two\&amp;quot;&gt;This is an acceptable target.&lt;/p&gt;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample-two\&amp;quot;&gt;\n  This is sample tooltip content.\n&lt;/div&gt;\n&amp;quot;}">
+                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;p&gt;The following text is a valid target:\n  &lt;span data-tooltip__target=\&amp;quot;sample-two\&amp;quot;&gt;&lt;strong&gt;valid target&lt;/strong&gt;&lt;/span&gt;\n&lt;/p&gt;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample-two\&amp;quot;&gt;\n  This is sample tooltip content.\n&lt;/div&gt;\n&amp;quot;}">
                   <input type="submit" value="edit on codepen.io" class="docs-pattern_footer-edit-btn">
                 </form>
                 <ul class="docs-notes">

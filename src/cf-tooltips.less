@@ -16,7 +16,7 @@
   - name: Tooltip container
     markup: |
       <div class="tooltip__container" data-tooltip__name="sample"
-        style="display:block; position: relative;">
+        style="display:block; position: static;">
         This is sample tooltip content.
       </div>
     notes:
@@ -24,7 +24,9 @@
         and relative, simply to display it for documentation purposes."
   - name: Tooltip target
     markup: |
-      <p data-tooltip__target="sample-two">This is an acceptable target.</p>
+      <p>The following text is a valid target:
+        <span data-tooltip__target="sample-two"><strong>valid target</strong></span>
+      </p>
       <div class="tooltip__container" data-tooltip__name="sample-two">
         This is sample tooltip content.
       </div>

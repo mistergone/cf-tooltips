@@ -10365,7 +10365,7 @@ return jQuery;
   var ToolTipper = function( element, options ) {
     var defaults = {
       pagePadding: 10,
-      verticalPadding: 10
+      verticalPadding: 22
     },
     // settings is defaults combined with user options
     settings = {},
@@ -10395,9 +10395,9 @@ return jQuery;
         $currentTarget = $( this );
 
         // Show the tooltip
-        console.log( $tooltip );
-        $tooltip.css( 'display', 'block');
+        $tooltip.show();
 
+        // reposition the tooltip
         _reposition();
 
         // Stop event propogation, add the hideHandler
@@ -10412,27 +10412,41 @@ return jQuery;
      * No parameters
      */
     function _reposition() {
-      var newTop,
+      var absTop,
+          absLeft,
           newLeft,
-          $elem = $currentTarget;
+          newTop,
+          tooltipHeight = $tooltip.outerHeight(),
+          tooltipWidth = $tooltip.outerWidth(true),
+          $elem = $currentTarget,
+          targetTop = $elem.offset().top,
+          targetLeft = $elem.offset().left,
+          halfTargetWidth = Math.floor( $elem.outerWidth() / 2 ),
+          halfTooltipWidth = Math.floor( tooltipWidth / 2 ),
+          relativeTop,
+          relativeLeft;
 
-      newTop = $elem.offset().top + $elem.outerHeight() + settings.verticalPadding;
-      newLeft = $elem.offset().left + ( $elem.outerWidth() / 2 ) - ( $tooltip.outerWidth(true) / 2 );
+      // Calculate new position for tooltip
+      absTop = targetTop - tooltipHeight - settings.verticalPadding;
+      absLeft = targetLeft + halfTargetWidth - halfTooltipWidth;
 
       // Prevent tooltip from falling off the left side of screens
-      if ( newLeft < settings.pagePadding ) {
-        newLeft = settings.pagePadding;
+      if ( absLeft < settings.pagePadding ) {
+        absLeft = settings.pagePadding;
       }
 
       // Prevent tooltip from falling off the right side of screens
-      if ( $tooltip.offset().left + $tooltip.outerWidth(true) > $( window ).width() ) {
-        var offset = $tooltip.outerWidth(true) - settings.pagePadding
-        newLeft = $( window ).width() - offset;
+      if ( $tooltip.offset().left + tooltipWidth > $( window ).width() ) {
+        var offset = tooltipWidth - settings.pagePadding;
+        absLeft = $( window ).width() - offset;
       }
 
+      // Given current tooltip position, determine new tooltip positioning
+      newLeft = absLeft - $tooltip.offset().left + $tooltip.position().left; 
+      newTop = absTop - $tooltip.offset().top + $tooltip.position().top; 
+
       // position the tooltip
-      $tooltip.css( { 'top': newTop, 'left': newLeft } );
-      console.log( newTop, newLeft );
+      $tooltip.css( { 'top': absTop, 'left': newLeft } );
     }
 
     /**
