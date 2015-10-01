@@ -13,16 +13,7 @@
   notes:
     - "Tooltips for the Capital Framework"
   patterns:
-  - name: Tooltip container
-    markup: |
-      <div class="tooltip__container" data-tooltip__name="sample"
-        style="display:block; position: static;">
-        This is sample tooltip content.
-      </div>
-    notes:
-      - "The above example has the style attribute to force it to be visibile
-        and relative, simply to display it for documentation purposes."
-  - name: Tooltip target
+  - name: Tooltip
     markup: |
       <p>The following text is a valid target:
         <span data-tooltip__target="sample-two"><strong>valid target</strong></span>
@@ -31,7 +22,16 @@
         This is sample tooltip content.
       </div>
     notes:
-      - "Note"
+      - "By adding the '.tooltip__container' class to a div, it becomes a tooltip."
+      - "A tooltip is further defined by adding the 'data-tooltip__name' attribute
+        to the element. The value of this attribute determines which targets will
+        activate the tooltip."
+      - "By adding the 'data-tooltip__target' attribute to an element, it becomes
+        a clickable tooltip target, which activates tooltips. The target will
+        activate the tooltip a 'data-tooltip__name' value equal to the target's
+        'data-tooltip__target' value."
+      - "Any element is a potential tooltip target, although inline elements
+        tend to produce vastly better results"
   tags:
     - cf-tooltips
 */
