@@ -10365,7 +10365,9 @@ return jQuery;
   var ToolTipper = function( element, options ) {
     var defaults = {
       pagePadding: 10,
-      verticalPadding: 22
+      verticalPadding: 22,
+      triangleWidth: 12,
+      borderWidth: 1
     },
     // settings is defaults combined with user options
     settings = {},
@@ -10428,33 +10430,45 @@ return jQuery;
      * No parameters
      */
     function _reposition() {
+      // absXXX values represent offsets to window
+      // newXXX values represent new position
+      // triXXX values refer to the triangle
+      // targetXXX values refer to the tooltip target
       var absTop,
           absLeft,
+          absRight,
           newLeft,
           newTop,
+          triLeft,
+          triWidth = settings.triangleWidth,
           tooltipHeight = $tooltip.outerHeight(),
           tooltipWidth = $tooltip.outerWidth(true),
           $elem = $currentTarget,
           targetTop = $elem.offset().top,
           targetLeft = $elem.offset().left,
+          targetCenter = Math.floor( $elem.outerWidth() / 2 ) + targetLeft,
           halfTargetWidth = Math.floor( $elem.outerWidth() / 2 ),
           halfTooltipWidth = Math.floor( tooltipWidth / 2 ),
           relativeTop,
           relativeLeft;
 
-      // Calculate new position for tooltip
+      // Calculate new position for tooltip and triangle
       absTop = targetTop - tooltipHeight - settings.verticalPadding;
       absLeft = targetLeft + halfTargetWidth - halfTooltipWidth;
+      triLeft = Math.floor( tooltipWidth / 2 ) - Math.floor( triWidth / 2 );
 
       // Prevent tooltip from falling off the left side of screens
       if ( absLeft < settings.pagePadding ) {
         absLeft = settings.pagePadding;
+        triLeft = targetCenter - absLeft;
       }
 
+      absRight = absLeft + tooltipWidth;
       // Prevent tooltip from falling off the right side of screens
-      if ( $tooltip.offset().left + tooltipWidth > $( window ).width() ) {
-        var offset = tooltipWidth - settings.pagePadding;
+      if ( absRight >= $( window ).width() - settings.pagePadding ) {
+        var offset = tooltipWidth + settings.pagePadding;
         absLeft = $( window ).width() - offset;
+        triLeft = targetCenter - absLeft;
       }
 
       // Given current tooltip position, determine new tooltip positioning
@@ -10463,8 +10477,7 @@ return jQuery;
 
       // position the tooltip
       $tooltip.css( { 'top': newTop, 'left': newLeft } );
-
-      // position the triangle
+      $tooltip.find( '[class*="triangle"]' ).css( 'left', triLeft );
     }
 
     /**
@@ -10473,7 +10486,7 @@ return jQuery;
      */
     function _hideHandler() {
       // if userAgent is an iPhone, iPad, iPod, make the body clickable
-      if ( /iP/i.test(navigator.userAgent) ) {
+      if ( /iP/i.test( navigator.userAgent ) ) {
         // Yes, changing the cursor makes it clickable. Seriously.
         $( 'body' ).css( 'cursor', 'pointer' ); 
       }
