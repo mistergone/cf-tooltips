@@ -10371,6 +10371,10 @@ return jQuery;
     settings = {},
     // $tooltip is built from the .tooltip-container element
     $tooltip = $( element ),
+    // The following elements represent the 'triangle' part
+    // of the tooltip.
+    $innerTriangle,
+    $outerTriangle,
     tooltipName = $tooltip.attr( 'data-tooltip__name' ),
     // $target is any element which opens the tooltip on click
     $target = $( '[data-tooltip__target="' + tooltipName + '"]' ),
@@ -10383,6 +10387,7 @@ return jQuery;
     function _init( options ) {
       settings = $.extend( {}, defaults, options );
       _targetHandler();
+      _createTriangle();
     }
 
     /**
@@ -10405,6 +10410,17 @@ return jQuery;
         _hideHandler();
 
       });
+    }
+
+    /**
+     * Handler for click events on the tooltip's target element
+     * No parameters
+     */
+    function _createTriangle() {
+      $tooltip.append( '<div class="triangle-outer"> </div>' );
+      $tooltip.append( '<div class="triangle-inner"> </div>' );
+      $innerTriangle = $tooltip.find( '.triangle-inner' );
+      $outerTriangle = $tooltip.find( '.triangle-outer' );
     }
 
     /**
@@ -10446,7 +10462,9 @@ return jQuery;
       newTop = absTop - $tooltip.offset().top + $tooltip.position().top; 
 
       // position the tooltip
-      $tooltip.css( { 'top': absTop, 'left': newLeft } );
+      $tooltip.css( { 'top': newTop, 'left': newLeft } );
+
+      // position the triangle
     }
 
     /**

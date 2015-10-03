@@ -56,7 +56,7 @@
     -moz-box-shadow: 2px 2px 0px 0px @tooltip-shadow;
     box-shadow: 2px 2px 0px 0px @tooltip-shadow;
 
-    &:after, &:before {
+    .triangle-inner, .triangle-outer {
         top: 100%;
         left: 50%;
         border: solid transparent;
@@ -66,12 +66,12 @@
         position: absolute;
         pointer-events: none;
     }
-    &:after {
+    .triangle-inner {
         border-top-color: @tooltip-bg;
         border-width: 12px;
         margin-left: -12px;
     }
-    &:before {
+    .triangle-outer {
         border-top-color: @tooltip-border;
         border-width: 13px;
         margin-left: -13px;
