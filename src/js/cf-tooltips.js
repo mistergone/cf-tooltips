@@ -46,8 +46,14 @@
      */
     function _targetHandler() {
       $target.click( function( ev ) {
+        var openTips = $( '.tooltip__container:visible' );
         // set the current target
         $target = $( this );
+
+        // elegantly close any open tooltips
+        if ( openTips.length > 0 ) {
+          openTips.data( 'CFTooltips' ).close();
+        }
 
         // Show the tooltip, activate it
         $tooltip.show();
