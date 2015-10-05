@@ -32,6 +32,17 @@
         'data-tooltip__target' value."
       - "Any element is a potential tooltip target, although inline elements
         tend to produce vastly better results"
+  - name: Inline tooltip target
+    markup: |
+      <p>This is an 
+        <span data-tooltip__target="sample-three" class="tooltip__inline-target">inline target</span>
+        for a tooltip.
+      </p>
+      <div class="tooltip__container" data-tooltip__name="sample-three">
+        This is sample tooltip content for the inline tooltip.
+      </div>
+    notes:
+      - The target has the class 'tooltip__inline-target'
   tags:
     - cf-tooltips
 */
@@ -40,6 +51,8 @@
 @tooltip-bg:              #F8F8F8;
 @tooltip-border:          #43484E;
 @tooltip-shadow:          #BABBBD;
+@tooltip-inline:          #BABBBD;
+@tooltip-inline-bg:       #E3E4E5;
 
 // .tooltip__container
 
@@ -86,8 +99,15 @@
 }
 
 .tooltip__inline-target {
+  border-bottom: 1px dotted @tooltip-inline;
 
+  &:hover,
+  &.activated {
+    background: @tooltip-inline-bg;
+    cursor: help;
+  }
 }
+
 
 /* topdoc
   name: EOF

@@ -48,8 +48,9 @@
         // set the current target
         $target = $( this );
 
-        // Show the tooltip
+        // Show the tooltip, activate it
         $tooltip.show();
+        $target.addClass( 'activated' );
 
         // reposition the tooltip
         _reposition();
@@ -139,6 +140,7 @@
 
       $( 'html' ).on( 'click', 'body', function() {
         $tooltip.hide();
+        $target.removeClass( 'activated' );
         $target = null;
         $( 'html' ).off( 'click' );
         $( 'body' ).css( 'cursor', 'inherit' );

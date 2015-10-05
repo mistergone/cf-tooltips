@@ -10379,8 +10379,7 @@ return jQuery;
     $outerTriangle,
     tooltipName = $tooltip.attr( 'data-tooltip__name' ),
     // $target is any element which opens the tooltip on click
-    $target = $( '[data-tooltip__target="' + tooltipName + '"]' ),
-    $currentTarget = null;
+    $target = $( '[data-tooltip__target="' + tooltipName + '"]' );
 
     /**
      * Initializes the ToolTipper
@@ -10399,10 +10398,11 @@ return jQuery;
     function _targetHandler() {
       $target.click( function( ev ) {
         // set the current target
-        $currentTarget = $( this );
+        $target = $( this );
 
-        // Show the tooltip
+        // Show the tooltip, activate it
         $tooltip.show();
+        $target.addClass( 'activated' );
 
         // reposition the tooltip
         _reposition();
@@ -10426,7 +10426,7 @@ return jQuery;
     }
 
     /**
-     * Repositions the tooltip based on $currentTarget
+     * Repositions the tooltip based on $target
      * No parameters
      */
     function _reposition() {
@@ -10443,11 +10443,10 @@ return jQuery;
           triWidth = settings.triangleWidth,
           tooltipHeight = $tooltip.outerHeight(),
           tooltipWidth = $tooltip.outerWidth(true),
-          $elem = $currentTarget,
-          targetTop = $elem.offset().top,
-          targetLeft = $elem.offset().left,
-          targetCenter = Math.floor( $elem.outerWidth() / 2 ) + targetLeft,
-          halfTargetWidth = Math.floor( $elem.outerWidth() / 2 ),
+          targetTop = $target.offset().top,
+          targetLeft = $target.offset().left,
+          targetCenter = Math.floor( $target.outerWidth() / 2 ) + targetLeft,
+          halfTargetWidth = Math.floor( $target.outerWidth() / 2 ),
           halfTooltipWidth = Math.floor( tooltipWidth / 2 ),
           relativeTop,
           relativeLeft;
@@ -10493,11 +10492,34 @@ return jQuery;
 
       $( 'html' ).on( 'click', 'body', function() {
         $tooltip.hide();
-        $currentTarget = null;
+        $target.removeClass( 'activated' );
+        $target = null;
         $( 'html' ).off( 'click' );
         $( 'body' ).css( 'cursor', 'inherit' );
       });      
     }
+
+    /**
+     * A public method that allows a tooltip to be opened without clicks
+     * No parameters
+     */
+
+     this.open = function() {
+      $tooltip.show();
+
+      _reposition();
+      _hideHandler();
+
+     }
+
+    /**
+     * A public method that allows a tooltip to be closed without clicks
+     * No parameters
+     */
+     this.close = function() {
+      $tooltip.hide();
+      $( 'html' ).off( 'click' );
+     }
 
     _init();
   }
@@ -10508,7 +10530,10 @@ return jQuery;
   $.fn.toolTipper = function( options ) {
     return this.each( function() {
       ( options || ( options = {} ) ).$element = $( this );
-      var scol = new ToolTipper( this, options );
+      var tt = new ToolTipper( this, options );
+      if ( $( this ).data( 'CFTooltips' ) === undefined ) {
+        $( this ).data( 'CFTooltips', tt );
+      }
     });
   };
 
