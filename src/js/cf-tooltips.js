@@ -37,6 +37,7 @@
       settings = $.extend( {}, defaults, options );
       _targetHandler();
       _createTriangle();
+      _resizeHandler();
     }
 
     /**
@@ -126,6 +127,17 @@
       $tooltip.css( { 'top': newTop, 'left': newLeft } );
       $tooltip.find( '[class*="triangle"]' ).css( 'left', triLeft );
     }
+
+    /**
+     * Adds a handler to reposition the tooltip on window resize
+     * No parameters
+     */
+
+     function _resizeHandler() {
+      $( window ).resize( function() {
+        _reposition();
+      });
+     }
 
     /**
      * Adds a handler to hide the tooltip container on body clicks
