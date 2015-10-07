@@ -10366,7 +10366,7 @@ return jQuery;
     var defaults = {
       pagePadding: 10,
       verticalPadding: 22,
-      triangleWidth: 12,
+      triangleWidth: 6,
       borderWidth: 1
     },
     // settings is defaults combined with user options
@@ -10510,7 +10510,6 @@ return jQuery;
       $( 'html' ).on( 'click', 'body', function() {
         $tooltip.hide();
         $target.removeClass( 'activated' );
-        $target = null;
         $( 'html' ).off( 'click' );
         $( 'body' ).css( 'cursor', 'inherit' );
       });      

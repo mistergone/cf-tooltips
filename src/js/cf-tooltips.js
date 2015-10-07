@@ -14,7 +14,7 @@
     var defaults = {
       pagePadding: 10,
       verticalPadding: 22,
-      triangleWidth: 12,
+      triangleWidth: 6,
       borderWidth: 1
     },
     // settings is defaults combined with user options
