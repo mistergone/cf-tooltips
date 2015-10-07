@@ -69,7 +69,7 @@
     -moz-box-shadow: 2px 2px 0px 0px @tooltip-shadow;
     box-shadow: 2px 2px 0px 0px @tooltip-shadow;
 
-    .triangle-inner, .triangle-outer {
+    .triangle, {
         top: 100%;
         left: 50%;
         border: solid transparent;
@@ -81,13 +81,19 @@
     }
     .triangle-inner {
         border-top-color: @tooltip-bg;
-        border-width: 12px;
-        margin-left: -12px;
+        border-width: 6px;
+        margin-left: -6px;
     }
     .triangle-outer {
         border-top-color: @tooltip-border;
-        border-width: 13px;
-        margin-left: -13px;
+        border-width: 7px;
+        margin-left: -7px;
+    }
+    .triangle-shadow {
+        border-top-color: @tooltip-shadow;
+        border-width: 8px;
+        margin-left: -7px;
+        margin-top: 1px;  
     }
 
 }

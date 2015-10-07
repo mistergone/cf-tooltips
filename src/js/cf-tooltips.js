@@ -74,10 +74,9 @@
      * No parameters
      */
     function _createTriangle() {
-      $tooltip.append( '<div class="triangle-outer"> </div>' );
-      $tooltip.append( '<div class="triangle-inner"> </div>' );
-      $innerTriangle = $tooltip.find( '.triangle-inner' );
-      $outerTriangle = $tooltip.find( '.triangle-outer' );
+      $tooltip.append( '<div class="triangle triangle-shadow"> </div>' );
+      $tooltip.append( '<div class="triangle triangle-outer"> </div>' );
+      $tooltip.append( '<div class="triangle triangle-inner"> </div>' );
     }
 
     /**
@@ -131,7 +130,7 @@
 
       // position the tooltip
       $tooltip.css( { 'top': newTop, 'left': newLeft } );
-      $tooltip.find( '[class*="triangle"]' ).css( 'left', triLeft );
+      $tooltip.find( '.triangle' ).css( 'left', triLeft );
     }
 
     /**

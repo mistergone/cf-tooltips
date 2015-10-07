@@ -10389,6 +10389,7 @@ return jQuery;
       settings = $.extend( {}, defaults, options );
       _targetHandler();
       _createTriangle();
+      _resizeHandler();
     }
 
     /**
@@ -10397,8 +10398,14 @@ return jQuery;
      */
     function _targetHandler() {
       $target.click( function( ev ) {
+        var openTips = $( '.tooltip__container:visible' );
         // set the current target
         $target = $( this );
+
+        // elegantly close any open tooltips
+        if ( openTips.length > 0 ) {
+          openTips.data( 'CFTooltips' ).close();
+        }
 
         // Show the tooltip, activate it
         $tooltip.show();
@@ -10419,10 +10426,9 @@ return jQuery;
      * No parameters
      */
     function _createTriangle() {
-      $tooltip.append( '<div class="triangle-outer"> </div>' );
-      $tooltip.append( '<div class="triangle-inner"> </div>' );
-      $innerTriangle = $tooltip.find( '.triangle-inner' );
-      $outerTriangle = $tooltip.find( '.triangle-outer' );
+      $tooltip.append( '<div class="triangle triangle-shadow"> </div>' );
+      $tooltip.append( '<div class="triangle triangle-outer"> </div>' );
+      $tooltip.append( '<div class="triangle triangle-inner"> </div>' );
     }
 
     /**
@@ -10476,8 +10482,19 @@ return jQuery;
 
       // position the tooltip
       $tooltip.css( { 'top': newTop, 'left': newLeft } );
-      $tooltip.find( '[class*="triangle"]' ).css( 'left', triLeft );
+      $tooltip.find( '.triangle' ).css( 'left', triLeft );
     }
+
+    /**
+     * Adds a handler to reposition the tooltip on window resize
+     * No parameters
+     */
+
+     function _resizeHandler() {
+      $( window ).resize( function() {
+        _reposition();
+      });
+     }
 
     /**
      * Adds a handler to hide the tooltip container on body clicks
