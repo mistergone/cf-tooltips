@@ -158,7 +158,6 @@
       $( 'html' ).on( 'click', 'body', function() {
         $tooltip.hide();
         $target.removeClass( 'activated' );
-        $target = null;
         $( 'html' ).off( 'click' );
         $( 'body' ).css( 'cursor', 'inherit' );
       });      
