@@ -13,7 +13,7 @@
   var ToolTipper = function( element, options ) {
     var defaults = {
       pagePadding: 10,
-      verticalPadding: 22,
+      verticalPadding: 10,
       triangleWidth: 6,
       borderWidth: 1
     },
