@@ -2287,7 +2287,7 @@ figure img {
   margin-left: -7px;
   margin-top: 1px;
 }
-*[data-tooltip-target] {
+*[data-tooltip__target] {
   cursor: pointer;
 }
 .tooltip__inline-target {
