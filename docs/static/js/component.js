@@ -10526,7 +10526,7 @@ return jQuery;
       _reposition();
       _hideHandler();
 
-     }
+     };
 
     /**
      * A public method that allows a tooltip to be closed without clicks
@@ -10535,10 +10535,10 @@ return jQuery;
      this.close = function() {
       $tooltip.hide();
       $( 'html' ).off( 'click' );
-     }
+     };
 
     _init();
-  }
+  };
 
   /**
    * Instatiates the ToolTipper

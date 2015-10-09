@@ -31,5 +31,8 @@
       "fonts": "src/fonts/*.*",
       "js": "src/**/*.js"
     }
+  },
+  "devDependencies": {
+    "qunit": "~1.19.0"
   }
 }
