@@ -35,7 +35,38 @@
               <h3 class="docs-pattern_header">Tooltip</h3>
               <section class="docs-pattern_pattern">
 <p>The following text is a valid target:
-  <span data-tooltip__target="sample-two"><strong>valid target</strong></span>
+  <button data-tooltip__target="sample-one" class="tooltip__bare-button"><strong>valid target</strong></button>
+</p>
+<div class="tooltip__container" data-tooltip__name="sample-one">
+  This is sample tooltip content.
+</div>
+
+              </section>
+              <footer class="docs-pattern_footer">
+                <pre class="docs-code docs-pattern_markup"><code data-language="html">&lt;p&gt;The following text is a valid target:
+  &lt;button data-tooltip__target=&quot;sample-one&quot; class=&quot;tooltip__bare-button&quot;&gt;&lt;strong&gt;valid target&lt;/strong&gt;&lt;/button&gt;
+&lt;/p&gt;
+&lt;div class=&quot;tooltip__container&quot; data-tooltip__name=&quot;sample-one&quot;&gt;
+  This is sample tooltip content.
+&lt;/div&gt;</code></pre>
+                <form action="http://codepen.io/pen/define" method="POST" target="_blank" class="docs-pattern_footer-edit">
+                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;p&gt;The following text is a valid target:\n  &lt;button data-tooltip__target=\&amp;quot;sample-one\&amp;quot; class=\&amp;quot;tooltip__bare-button\&amp;quot;&gt;&lt;strong&gt;valid target&lt;/strong&gt;&lt;/button&gt;\n&lt;/p&gt;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample-one\&amp;quot;&gt;\n  This is sample tooltip content.\n&lt;/div&gt;\n&amp;quot;}">
+                  <input type="submit" value="edit on codepen.io" class="docs-pattern_footer-edit-btn">
+                </form>
+                <ul class="docs-notes">
+                  <li>By adding the '.tooltip__container' class to an element (most likely a DIV), it becomes a tooltip.</li>
+                  <li>A tooltip is further defined by adding the 'data-tooltip__name' attribute to the element. The value of this attribute determines which targets will activate the tooltip.</li>
+                  <li>By adding the 'data-tooltip__target' attribute to an element, it becomes a clickable tooltip target, which activates tooltips. The target will activate the tooltip a 'data-tooltip__name' value equal to the target's 'data-tooltip__target' value.</li>
+                  <li>Any element is a potential tooltip target, although we strongly recommend interactive elements, such as a BUTTON tag, to make the tooltip targets accessible in the simplest way. Also, for best results, the target should be an inline element, not a block element.</li>
+                  <li>Above, we use the '.tooltip__bare-button' class (see below) to 'strip out' the button styles.</li>
+                </ul>
+              </footer>
+            </div>
+            <div class="docs-pattern">
+              <h3 class="docs-pattern_header">Tooltip, Bare Button</h3>
+              <section class="docs-pattern_pattern">
+<p>The following text is a valid target:
+  <button data-tooltip__target="sample-two" class="tooltip__bare-button">valid target</button>
 </p>
 <div class="tooltip__container" data-tooltip__name="sample-two">
   This is sample tooltip content.
@@ -44,20 +75,17 @@
               </section>
               <footer class="docs-pattern_footer">
                 <pre class="docs-code docs-pattern_markup"><code data-language="html">&lt;p&gt;The following text is a valid target:
-  &lt;span data-tooltip__target=&quot;sample-two&quot;&gt;&lt;strong&gt;valid target&lt;/strong&gt;&lt;/span&gt;
+  &lt;button data-tooltip__target=&quot;sample-two&quot; class=&quot;tooltip__bare-button&quot;&gt;valid target&lt;/button&gt;
 &lt;/p&gt;
 &lt;div class=&quot;tooltip__container&quot; data-tooltip__name=&quot;sample-two&quot;&gt;
   This is sample tooltip content.
 &lt;/div&gt;</code></pre>
                 <form action="http://codepen.io/pen/define" method="POST" target="_blank" class="docs-pattern_footer-edit">
-                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;p&gt;The following text is a valid target:\n  &lt;span data-tooltip__target=\&amp;quot;sample-two\&amp;quot;&gt;&lt;strong&gt;valid target&lt;/strong&gt;&lt;/span&gt;\n&lt;/p&gt;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample-two\&amp;quot;&gt;\n  This is sample tooltip content.\n&lt;/div&gt;\n&amp;quot;}">
+                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;p&gt;The following text is a valid target:\n  &lt;button data-tooltip__target=\&amp;quot;sample-two\&amp;quot; class=\&amp;quot;tooltip__bare-button\&amp;quot;&gt;valid target&lt;/button&gt;\n&lt;/p&gt;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample-two\&amp;quot;&gt;\n  This is sample tooltip content.\n&lt;/div&gt;\n&amp;quot;}">
                   <input type="submit" value="edit on codepen.io" class="docs-pattern_footer-edit-btn">
                 </form>
                 <ul class="docs-notes">
-                  <li>By adding the '.tooltip__container' class to a div, it becomes a tooltip.</li>
-                  <li>A tooltip is further defined by adding the 'data-tooltip__name' attribute to the element. The value of this attribute determines which targets will activate the tooltip.</li>
-                  <li>By adding the 'data-tooltip__target' attribute to an element, it becomes a clickable tooltip target, which activates tooltips. The target will activate the tooltip a 'data-tooltip__name' value equal to the target's 'data-tooltip__target' value.</li>
-                  <li>Any element is a potential tooltip target, although inline elements tend to produce vastly better results</li>
+                  <li>By adding the '.tooltip__bare-button' class to a BUTTON tag, the border, background, margin, and padding are removed or reset to inherit, thus removing default button styling.</li>
                 </ul>
               </footer>
             </div>
@@ -65,7 +93,7 @@
               <h3 class="docs-pattern_header">Inline tooltip target</h3>
               <section class="docs-pattern_pattern">
 <p>This is an 
-  <span data-tooltip__target="sample-three" class="tooltip__inline-target">inline target</span>
+  <button data-tooltip__target="sample-three" class="tooltip__bare-button tooltip__inline-target">inline target</button>
   for a tooltip.
 </p>
 <div class="tooltip__container" data-tooltip__name="sample-three">
@@ -75,18 +103,19 @@
               </section>
               <footer class="docs-pattern_footer">
                 <pre class="docs-code docs-pattern_markup"><code data-language="html">&lt;p&gt;This is an 
-  &lt;span data-tooltip__target=&quot;sample-three&quot; class=&quot;tooltip__inline-target&quot;&gt;inline target&lt;/span&gt;
+  &lt;button data-tooltip__target=&quot;sample-three&quot; class=&quot;tooltip__bare-button tooltip__inline-target&quot;&gt;inline target&lt;/button&gt;
   for a tooltip.
 &lt;/p&gt;
 &lt;div class=&quot;tooltip__container&quot; data-tooltip__name=&quot;sample-three&quot;&gt;
   This is sample tooltip content for the inline tooltip.
 &lt;/div&gt;</code></pre>
                 <form action="http://codepen.io/pen/define" method="POST" target="_blank" class="docs-pattern_footer-edit">
-                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;p&gt;This is an \n  &lt;span data-tooltip__target=\&amp;quot;sample-three\&amp;quot; class=\&amp;quot;tooltip__inline-target\&amp;quot;&gt;inline target&lt;/span&gt;\n  for a tooltip.\n&lt;/p&gt;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample-three\&amp;quot;&gt;\n  This is sample tooltip content for the inline tooltip.\n&lt;/div&gt;\n&amp;quot;}">
+                  <input type="hidden" name="data" value="{&amp;quot;css&amp;quot;:&amp;quot;body { padding: 1em; }&amp;quot;,&amp;quot;css_external&amp;quot;:&amp;quot;http://cfpb.github.io/cf-tooltips/docs/static/css/main.css&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;\n&lt;p&gt;This is an \n  &lt;button data-tooltip__target=\&amp;quot;sample-three\&amp;quot; class=\&amp;quot;tooltip__bare-button tooltip__inline-target\&amp;quot;&gt;inline target&lt;/button&gt;\n  for a tooltip.\n&lt;/p&gt;\n&lt;div class=\&amp;quot;tooltip__container\&amp;quot; data-tooltip__name=\&amp;quot;sample-three\&amp;quot;&gt;\n  This is sample tooltip content for the inline tooltip.\n&lt;/div&gt;\n&amp;quot;}">
                   <input type="submit" value="edit on codepen.io" class="docs-pattern_footer-edit-btn">
                 </form>
                 <ul class="docs-notes">
                   <li>The target has the class 'tooltip__inline-target'</li>
+                  <li>The '.tooltip__bare-button' class (see above) can be used with a BUTTON inline target to 'strip out' the default button styles.</li>
                 </ul>
               </footer>
             </div>

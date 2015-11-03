@@ -20,7 +20,17 @@
       <div>
         <div>
 <p>The following text is a valid target:
-  <span data-tooltip__target="sample-two"><strong>valid target</strong></span>
+  <button data-tooltip__target="sample-one" class="tooltip__bare-button"><strong>valid target</strong></button>
+</p>
+<div class="tooltip__container" data-tooltip__name="sample-one">
+  This is sample tooltip content.
+</div>
+</div><br>
+      </div>
+      <div>
+        <div>
+<p>The following text is a valid target:
+  <button data-tooltip__target="sample-two" class="tooltip__bare-button">valid target</button>
 </p>
 <div class="tooltip__container" data-tooltip__name="sample-two">
   This is sample tooltip content.
@@ -30,7 +40,7 @@
       <div>
         <div>
 <p>This is an 
-  <span data-tooltip__target="sample-three" class="tooltip__inline-target">inline target</span>
+  <button data-tooltip__target="sample-three" class="tooltip__bare-button tooltip__inline-target">inline target</button>
   for a tooltip.
 </p>
 <div class="tooltip__container" data-tooltip__name="sample-three">

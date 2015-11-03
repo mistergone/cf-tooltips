@@ -16,13 +16,14 @@
   - name: Tooltip
     markup: |
       <p>The following text is a valid target:
-        <span data-tooltip__target="sample-two"><strong>valid target</strong></span>
+        <button data-tooltip__target="sample-one" class="tooltip__bare-button"><strong>valid target</strong></button>
       </p>
-      <div class="tooltip__container" data-tooltip__name="sample-two">
+      <div class="tooltip__container" data-tooltip__name="sample-one">
         This is sample tooltip content.
       </div>
     notes:
-      - "By adding the '.tooltip__container' class to a div, it becomes a tooltip."
+      - "By adding the '.tooltip__container' class to an element (most likely a
+        DIV), it becomes a tooltip."
       - "A tooltip is further defined by adding the 'data-tooltip__name' attribute
         to the element. The value of this attribute determines which targets will
         activate the tooltip."
@@ -30,12 +31,28 @@
         a clickable tooltip target, which activates tooltips. The target will
         activate the tooltip a 'data-tooltip__name' value equal to the target's
         'data-tooltip__target' value."
-      - "Any element is a potential tooltip target, although inline elements
-        tend to produce vastly better results"
+      - "Any element is a potential tooltip target, although we strongly recommend
+        interactive elements, such as a BUTTON tag, to make the tooltip targets
+        accessible in the simplest way. Also, for best results, the target should
+        be an inline element, not a block element."
+      - "Above, we use the '.tooltip__bare-button' class (see below) to 'strip out'
+        the button styles."
+  - name: Tooltip, Bare Button
+    markup: |
+      <p>The following text is a valid target:
+        <button data-tooltip__target="sample-two" class="tooltip__bare-button">valid target</button>
+      </p>
+      <div class="tooltip__container" data-tooltip__name="sample-two">
+        This is sample tooltip content.
+      </div>
+    notes:
+      - "By adding the '.tooltip__bare-button' class to a BUTTON tag, the border,
+        background, margin, and padding are removed or reset to inherit, thus removing
+        default button styling."
   - name: Inline tooltip target
     markup: |
       <p>This is an 
-        <span data-tooltip__target="sample-three" class="tooltip__inline-target">inline target</span>
+        <button data-tooltip__target="sample-three" class="tooltip__bare-button tooltip__inline-target">inline target</button>
         for a tooltip.
       </p>
       <div class="tooltip__container" data-tooltip__name="sample-three">
@@ -43,16 +60,19 @@
       </div>
     notes:
       - The target has the class 'tooltip__inline-target'
+      - "The '.tooltip__bare-button' class (see above) can be used with a BUTTON
+        inline target to 'strip out' the default button styles."
   tags:
     - cf-tooltips
 */
 
-// Color variables
-@tooltip-bg:              #F8F8F8;
-@tooltip-border:          #43484E;
-@tooltip-shadow:          #BABBBD;
-@tooltip-inline:          #BABBBD;
-@tooltip-inline-bg:       #E3E4E5;
+// Color variables (from 18F's US Web Design Standards)
+// https://github.com/18F/web-design-standards/blob/18f-pages/assets/_scss/core/_variables.scss
+@tooltip-bg:              #ffffff; // $color-white
+@tooltip-border:          #494440; // $color-gray-warm-dark
+@tooltip-shadow:          #aeb0b5; // $color-gray-light
+@tooltip-inline:          #aeb0b5; // $color-gray-light
+@tooltip-inline-bg:       #e4e2e0; // $color-gray-warm-light
 
 // .tooltip__container
 
@@ -65,8 +85,6 @@
     max-width: unit( 270px / @base-font-size-px, em);
     padding: unit( 15px / @base-font-size-px, em);
     position: absolute;
-    -webkit-box-shadow: 2px 2px 0px 0px @tooltip-shadow;
-    -moz-box-shadow: 2px 2px 0px 0px @tooltip-shadow;
     box-shadow: 2px 2px 0px 0px @tooltip-shadow;
     .webfont-regular();
 
@@ -78,6 +96,7 @@
         height: 0;
         width: 1px;
         position: absolute;
+        margin-left: -7px;
         pointer-events: none;
     }
     .triangle-inner {
@@ -88,12 +107,10 @@
     .triangle-outer {
         border-top-color: @tooltip-border;
         border-width: 7px;
-        margin-left: -7px;
     }
     .triangle-shadow {
         border-top-color: @tooltip-shadow;
         border-width: 8px;
-        margin-left: -7px;
         margin-top: 1px;  
     }
 
@@ -103,6 +120,16 @@
 
 *[data-tooltip__target] {
     cursor: pointer;
+}
+
+.tooltip__bare-button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-weight: inherit;
+  padding: inherit;
+  margin: inherit;
+  outline: none;
 }
 
 .tooltip__inline-target {

@@ -10350,8 +10350,6 @@ return jQuery;
 
 }));
 
-
-
 /**
  * cf-tooltips
  * https://github.com/cfpb/cf-tooltips
@@ -10393,31 +10391,53 @@ return jQuery;
     }
 
     /**
+     * Function to elegantly close any open tooltips
+     * No parameters
+     */
+    function _closeAllTooltips() {
+      var openTips = $( '.tooltip__container:visible' );
+
+      if ( openTips.length > 0 ) {
+        openTips.data( 'CFTooltips' ).close();
+      }
+    }
+
+    /**
+     * Function to open a tooltip
+     * No parameters
+     */
+    function _open() {
+      // Show the tooltip, activate it
+      $tooltip.show();
+      $target.addClass( 'activated' );
+    }
+
+    /**
+     * Function to open a tooltip
+     * No parameters
+     */
+    function _close() {
+      // Hide the tooltip, deactivate it
+      $tooltip.hide();
+      $target.removeClass( 'activated' );
+    }
+
+    /**
      * Handler for click events on the tooltip's target element
      * No parameters
      */
     function _targetHandler() {
       $target.click( function( ev ) {
-        var openTips = $( '.tooltip__container:visible' );
-        // set the current target
-        $target = $( this );
+        // Close other tooltips, open this one
+        _closeAllTooltips();
+        _open();
 
-        // elegantly close any open tooltips
-        if ( openTips.length > 0 ) {
-          openTips.data( 'CFTooltips' ).close();
-        }
-
-        // Show the tooltip, activate it
-        $tooltip.show();
-        $target.addClass( 'activated' );
-
-        // reposition the tooltip
+        // reposition this tooltip
         _reposition();
 
         // Stop event propogation, add the hideHandler
         ev.stopPropagation();
         _hideHandler();
-
       });
     }
 
@@ -10508,8 +10528,7 @@ return jQuery;
       }
 
       $( 'html' ).on( 'click', 'body', function() {
-        $tooltip.hide();
-        $target.removeClass( 'activated' );
+        _close();
         $( 'html' ).off( 'click' );
         $( 'body' ).css( 'cursor', 'inherit' );
       });      
@@ -10521,8 +10540,7 @@ return jQuery;
      */
 
      this.open = function() {
-      $tooltip.show();
-
+      _open();
       _reposition();
       _hideHandler();
 
